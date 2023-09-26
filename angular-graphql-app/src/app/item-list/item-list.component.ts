@@ -15,8 +15,8 @@ export class ItemListComponent implements OnInit {
 
   ngOnInit(): void {
     this.graphqlService.getAllItems().subscribe((result) => {
-      console.log(result)
-      this.items = result; // Update this line based on your GraphQL response structure
+      console.log(result.launchesPast)
+      this.items = result.launchesPast; // Update this line based on your GraphQL response structure
     });
   }
 }

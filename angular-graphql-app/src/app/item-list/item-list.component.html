@@ -1,1 +1,13 @@
-<p>item-list works!</p>
+<!-- app.component.html -->
+
+<div *ngFor="let mission of items" class="mission-card">
+    <h2>{{ mission.mission_name }}</h2>
+    <p>Launch Date: {{ mission.launch_date_local | date: 'medium' }}</p>
+    <p>Launch Site: {{ mission.launch_site || 'N/A' }}</p>
+    <div class="mission-links">
+      <a [href]="mission.links.article_link" target="_blank">Article Link</a>
+      <a [href]="mission.links.video_link" target="_blank">Video Link</a>
+    </div>
+    <p>Rocket Name: {{ mission.rocket.rocket_name }}</p>
+  </div>
+  

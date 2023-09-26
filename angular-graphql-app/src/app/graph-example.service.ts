@@ -29,7 +29,7 @@ export class GraphExampleService {
 
   constructor(private apollo: Apollo) {}
 
-  getAllItems(): Observable<any[]> {
+  getAllItems(): Observable<any> {
     return this.apollo
       .watchQuery<any>({
         query: COUNTRIES,

@@ -1,4 +1,4 @@
-<!-- app.component.html -->
+<!-- app.component.html
 
 <div *ngFor="let mission of items" class="mission-card">
     <h2>{{ mission.mission_name }}</h2>
@@ -9,5 +9,19 @@
       <a [href]="mission.links.video_link" target="_blank">Video Link</a>
     </div>
     <p>Rocket Name: {{ mission.rocket.rocket_name }}</p>
+  </div>
+   -->
+
+   <!-- app.component.html -->
+
+<div class="bg-white p-4 m-4 rounded shadow-md" *ngFor="let mission of items">
+    <h2 class="text-xl font-semibold">{{ mission.mission_name }}</h2>
+    <p class="text-gray-600">Launch Date: {{ mission.launch_date_local | date: 'medium' }}</p>
+    <p class="text-gray-600">Launch Site: {{ mission.launch_site || 'N/A' }}</p>
+    <div class="mt-2 flex space-x-4">
+      <a [href]="mission.links.article_link" target="_blank" class="text-blue-500 hover:underline">Article Link</a>
+      <a [href]="mission.links.video_link" target="_blank" class="text-blue-500 hover:underline">Video Link</a>
+    </div>
+    <p class="mt-2 text-gray-600">Rocket Name: {{ mission.rocket.rocket_name }}</p>
   </div>
   

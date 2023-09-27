@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { ApolloTestingController, ApolloTestingModule } from 'apollo-angular/testing';
 
-import { GraphExampleService } from './graph-example.service';
+import { GraphExampleService, LAUNCHES } from './graph-example.service';
 import { FetchPolicy, gql } from '@apollo/client';
 
 const mock_response = {
@@ -184,26 +184,8 @@ describe('GraphExampleService', () => {
 
   it('should run my query',(done)=>{
      //Given
-
      const queryOptions = {
-      query: gql`
-      query SearchAirports($searchString: String!) {
-        searchAirports(search: $searchString) {
-          edges {
-            node {
-              resourceId
-              airportName
-              cityName
-              countryName
-              iata
-              icao                    
-            }
-          }
-        }
-      }`,
-      // variables: {
-      //     searchString: 'KMIA'
-      // },
+      query: LAUNCHES,
       fetchPolicy: 'network-only' as FetchPolicy,
   };
 

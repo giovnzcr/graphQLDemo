@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { Observable, map } from 'rxjs';
 
-const COUNTRIES = gql`
+export const LAUNCHES = gql`
 {
   launchesPast(limit: 10) {
     mission_name
@@ -32,7 +32,7 @@ export class GraphExampleService {
   getAllItems(): Observable<any> {
     return this.apollo
       .watchQuery<any>({
-        query: COUNTRIES,
+        query: LAUNCHES,
       })
       .valueChanges.pipe(map((result) => result.data));
   }
